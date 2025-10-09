@@ -6,6 +6,7 @@
 use clap::Parser;
 use rollupcore::{Result, run};
 
+/// CLI arguments for RollupCore
 #[derive(Parser)]
 #[command(version, about = "RollupCore - A Rust implementation")]
 struct Cli {
@@ -23,6 +24,9 @@ struct Cli {
 }
 
 fn main() -> Result<()> {
+    // Parse CLI arguments
     let args = Cli::parse();
+
+    // Run RollupCore with parsed arguments
     run(args.verbose, args.input, args.output)
 }
